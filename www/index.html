@@ -10,13 +10,16 @@
     <link rel="stylesheet" href="css/style.css">
     <script src="keys.js"></script>
     <script>
-        let appKey="0ad2507ebc8880af3ea1a0b4ad198e57cc9a4ce91084a533c77b8be08b0edc92";
-        let clientKey="609a5c99450c4ad4d53d82199027bd3651d5f824916f9b090bc4068ac5b4b66c";
         let ncmb = new NCMB(appKey, clientKey);
         let TestClass = ncmb.DataStore("RegisterTest2");
         let testRecord = new TestClass();
         testRecord.set("message2", "hello, world");
-        testRecord.save();
+        testRecord.save()
+            .then(function(m) {
+                alert("success:" + JSON.stringify(m));
+            }).catch(function(m) {
+                alert("fail:" + JSON.stringify(m));
+            });
     </script>
 </head>
 
